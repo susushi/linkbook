@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="UserDao">
+
+	<resultMap id="UserResult" type="priv.susu.linkbook.user.User">
+		<id column="id" property="id" />
+		<result column="username" property="username" />
+		<result column="firstname" property="firstName" />
+		<result column="lastname" property="lastName" />
+		<result column="password" property="password" />
+		<result column="avatar" property="avatar" />
+		<result column="gender" property="gender" />
+		<result column="birthdate" property="birthDate" />
+		<result column="hometown" property="hometown" />
+		<result column="residence" property="residence" />
+		<result column="last_login_time" property="lastLoginTime" />
+		<result column="register_time" property="registerTime" />
+	</resultMap>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id"
+		parameterType="priv.susu.linkbook.user.User">
+		<![CDATA[
+			insert into `user`(`username`, `firstname`, `lastname`, `password`, `avatar`, `gender`, `birth_date`,`hometown`, `residence`, `last_login_time`, `register_time`) 
+			values (#{username}, #{firstName}, #{lastName}, #{password}, #{avatar}, #{gender}, #{birthDate}, #{hometown}, #{residence}, #{lastLoginTime}, #{registerTime})
+		]]>
+	</insert>
+
+	<select id="getByUsername" parameterType="string" resultMap="UserResult">
+		<![CDATA[
+			select * 
+			from `user`
+			where `username` = #{username}
+		]]>
+	</select>
+
+	<select id="get" parameterType="long" resultMap="UserResult">
+		<![CDATA[
+			select * 
+			from `user`
+			where `id` = #{id}
+		]]>
+	</select>
+
+</mapper>

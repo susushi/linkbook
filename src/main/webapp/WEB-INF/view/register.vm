@@ -1,0 +1,272 @@
+#parse("include/common.vm")
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>registrieren-linkbook</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="description" content="" />
+
+	<script type="text/javascript" src="${ctx}/resources/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="$ctx/resources/css/kickstart.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="$ctx/resources/css/style.css" media="all" />
+	<style type="text/css">
+		body{
+			margin:0;
+			padding:0; 	
+		}
+	
+		.page{
+			background-image:url($ctx/resources/image_homepage/homepage_ohne_anmelden.jpg);
+			margin-left:-5px;
+		}  
+	
+		.head{
+			height:50px;
+		}
+		.main{
+			margin:0 auto;
+		}
+		.main_melden{
+			height:700px;
+		}
+		.main_papier{
+			height:600px;
+			width:500px;
+			position:absolute;
+			margin-left:700px;
+		}
+		.main_oben{
+			display:inline-block;
+			position:absolute;
+			opacity: 0.8;			
+			margin:47px -347px;
+		}
+		.registrieren{
+			display:inline-block;
+			font-size: 16px;
+			font-family: "Arial";
+			color: rgb( 0, 0, 0 );
+			font-weight: bold;
+			-webkit-transform: matrix( 1.98577213527416,0,0,2.13764527539161,0,0);
+			position:absolute;
+			margin:-59px 69px;
+			}
+		.info{
+			font-size: 11px;
+			font-family: "Arial";
+			color: rgb( 5, 5, 5 );
+			font-weight: bold;
+			-webkit-transform: matrix( 1.98577213527416,0,0,2.13764527539161,0,0);
+			}
+		.input_name{
+			width:220px;
+			height:40px;
+			position:absolute;
+			margin:-28px 120px;
+		}
+		.input_vorname{
+			width:220px;
+			height:40px;
+			position:absolute;
+			margin:-28px 112px;
+		}
+		.input_email{
+			width:220px;
+			height:40px;
+			position:absolute;
+			margin:-28px 120px;
+		}
+		.input_password{
+			width:220px;
+			height:40px;
+			position:absolute;
+			margin:-28px 114px;
+		}
+		.tag{
+			border: 1px solid #ccc;
+			display:inline;
+			line-height:100%;
+			padding:3px;
+			vertical-align:middle;
+			width:auto;
+			height:35px;
+			position:absolute;
+			margin:-28px 111px;
+		}
+		.monate{
+			border: 1px solid #ccc;
+			display:inline;
+			line-height:100%;
+			padding:3px;
+			vertical-align:middle;
+			width:auto;
+			height:35px;
+			position:absolute;
+			margin:-28px 178px;
+		}
+		.jahr{
+			border: 1px solid #ccc;
+			display:inline;
+			line-height:100%;
+			padding:3px;
+			vertical-align:middle;
+			width:auto;
+			height:35px;
+			position:absolute;
+			margin:-28px 267px;
+		}
+		.main_mittel1{
+			display:inline-block;			
+			position:absolute;
+			margin:172px -388px
+
+		}
+		.main_mittel2{
+			display:inline-block;
+			position:absolute;
+			margin:230px -378px;
+		}
+		.main_mittel3{
+			display:inline-block;
+			position:absolute;
+			margin:290px -385px;
+		}
+		.main_mittel4{
+			display:inline-block;
+			position:absolute;
+			margin:351px -378px;
+		}
+		.main_mittel5{
+			display:inline-block;
+			position:absolute;
+			margin:411px -371px;
+		}
+		.main_mittel6{
+			display:inline-block;
+			width:700px;
+			position:absolute;
+			margin:460px -261px;
+		}
+		.main_unten{
+			display:inline-block;
+			position:absolute;
+			margin:500px -340px;
+		}
+
+
+
+		
+    </style>
+</head>
+
+<body>
+	<div class="page">
+        <!--菜单栏：标语和登录-->
+        <div class="head">       	
+            <div class="logo" style="display:inline-block;">
+            	<a href="网站首页_Homepage ohne anmelden.html">
+                	<img src="$ctx/resources/image_homepage/登录首页_0001_logo.png" width="200" height="47" />
+                </a> 
+            </div>
+        </div>
+        <!--登录框-->
+        <div class="main">
+        	<div class="main_melden">
+                <div class="main_papier">
+                    <img src="$ctx/resources/image_homepage/home_0000s_0000_pin.png" width="480" height="600" />
+                    <div class="main_oben">
+                		<img src="$ctx/resources/image_homepage/home_0000s_0000s_0001_bg.png" width="270" height="100" />
+                        <p class="registrieren">REGISTRIEREN</p>
+                    </div>                     
+                    <div class="main_mittel1">
+                        <form>
+                        	<label class="info">Name:</label>
+                        	<input type="text" class="input_name" name="name" id="firstname"/>
+                        </form>
+                    </div>
+                    <div class="main_mittel2">                    	
+                        <form>
+                        	<label class="info">Vorname:</label>
+                        	<input type="text" class="input_vorname" id="lastname"/>
+                        </form>
+                    </div>
+					<div class="main_mittel3">                    	
+                        <form>
+                        	<label class="info">E-Mail:</label>
+                        	<input type="text" class="input_email" id="email" />
+                        </form>
+                    </div>
+                    <div class="main_mittel4">                    	
+                        <form>
+                        	<label class="info">Passwort:</label>
+                        	<input type="password" class="input_password" id="password"/>
+                        </form>
+                    </div>
+                    <div class="main_mittel5">                    	
+                        <form>
+                        	<label class="info">Geburtstag:</label>
+                        	<select class="tag" id="birth_day">
+                            	<option value="tag2" selected="selected">Tag</option>
+                            	<option value="tag1">1</option>
+                                <option value="tag3">31</option>
+                            </select>
+                            <select class="monate" id="birth_month">
+                            	<option value="二月" selected="selected">Monate</option>
+                                <option value="一月">Jan.</option>
+                                <option value="三月">Mär.</option>
+                            </select>
+                            <select class="jahr" id="birth_year">
+                            	<option value="jahr2" selected="selected">Jahr</option>
+                                <option value="jahr1">1994</option>
+                                <option value="jahr3">1992</option>
+                            </select>
+                        </form>
+                    </div>
+					<div class="main_mittel6">                    	
+                        <form>                       	
+                        	<input type="radio" id="input_female" name="gender" value="女"/>
+                            <label  for="input_female" class="frau"><strong>Weiblich</strong></label>
+                            <input type="radio" id="input_male" name="gender" value="男"/>
+                            <label for="input_male" class="man"><strong>Männlich</strong></label>
+                        </form>
+                    </div>
+                    <div class="main_unten">
+                        <button onclick="register();" class="large orange">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 28px;font-family: Arial;">Losgehen</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    </div>
+                </div>           
+            </div>
+        </div>    
+    </div>
+</body>
+</html>
+
+<script>
+	function register(){
+		//此处需要对各个参数做校验
+		var firstname = $("#firstname").val();
+		var lastname = $("#lastname").val();
+		var email = $("#email").val();
+		var password = $("#password").val();
+		var birthdate = $('#birth_year').val() + '-' +  $('#birth_month').val() + '-' + $('#birth_day').val();
+		$.ajax({
+			url : '$ctx/register/submit.json',
+			data : {firstname : firstname,
+					lastname : lastname,
+					username : email,
+					password : password,
+					birthdate : birthdate},
+			type : "POST",
+			dataType : 'json',
+			success : function(result){
+				if(result.code == 0){
+					alert('注册成功');
+				} else {
+					alert(result.message);
+				}
+			}
+		});
+	}
+</script>

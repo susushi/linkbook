@@ -1,0 +1,338 @@
+#parse("include/common.vm")
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Dashboard</title>
+    <!--META-->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="description" content="" />
+	<!--CSS-->
+    <link rel="stylesheet" type="text/css" href="${ctx}/resources/css/kickstart.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/style.css" media="all" />
+    
+    <style type="text/css">
+		body{
+			margin:0;
+			padding:0; 	
+		}
+		a{
+			text-decoration:none;
+		}
+		.page_right{
+			width:200px;
+			height:800px;
+			background:#FFC;
+			margin:0 auto;
+			float:right;
+		}
+		.top{
+			background-color: rgb( 66, 133, 244 );
+			box-shadow: 0px 4px 8px 0px rgb( 1, 1, 1 );
+			height: 50px;
+			z-index: 211;
+		}
+		.header{
+			margin-left:160px;
+			height:50px;
+		}
+		.logo{
+			height:50px;
+			width:200px;
+			position:absolute;
+			left:0;		
+		}
+		.h_right{
+			width:1080px;
+			height:50px;
+			margin:0 auto;
+			padding:10px 0 0;
+			position:relative;
+		}
+		.h_search{
+			float:left;
+			position:relative;
+		}
+		.h_search .h_search-input{
+									
+			width: 500px;
+			padding: 3px 20px 3px 10px;
+			font-size: 14px;
+			line-height: 24px;
+			border: 0;
+			color: #FFF;
+			border-radius:2px;
+		}
+		.h_search_icon{
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			position: absolute;
+			right: 12px;
+			top: 0px;
+		}
+		.h_homepage{
+			float:left;
+			margin-left:25px;
+		}
+		.h_profie{
+			float:left;
+			margin-left:30px;
+		}
+		.h_profie dt{
+			float:left;
+			margin-right:4px;
+		}
+		.h_profie dd{
+			line-height:16px;
+		}
+		.h_setting{
+			float:right;
+			position:relative;
+			margin-right:30px;
+		}	
+			
+		.main{
+			height:600px;		
+			margin:0 auto;
+		}
+		.aside{
+			width:200px;			
+			margin:0 auto;
+			float:left;
+		}
+		.content{
+			width:auto;
+			margin:0 auto;
+			float:right;
+		}
+		.main_content{
+			width:100%;
+			margin:0 auto;
+			padding:15px 0 0;
+			position:relative;
+		}
+		.album{
+			width:880px;
+			border:1px solid #d1d1d1;
+			border-radius:3px;
+			margin:30px auto;
+			background:#FFF;
+			box-shadow: 0px 1px 2px 0px rgb( 0, 0, 0 );
+			
+		}
+		.album_head{
+			border-radius: 3px 0 0 3px;
+			width: 100%;
+			background: #f8f8f8;
+			height: 50px;
+		}
+		.album_list{
+			width:880px;
+			overflow:hidden;
+		}
+		.foot{
+			height:80px;
+			background:#F0C;
+			position:relative;
+			margin-top:70px;;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="page">
+    	<!--右侧通讯栏-->
+    	<div class="page_right">
+        
+        </div>
+        <div class="page_left">
+            <div class="top">
+            	<!--主菜单栏-->
+                <div class="header">
+                    <!--logo-->
+                    <div class="logo">
+                        <a href="登录主页-dashboard.html">
+                            <img src="$ctx/resources/image/logo.png" height="45" width="190"/>
+                        </a>
+                    </div>
+                    <div class="h_right">
+                        <!--搜索框和搜索图标-->
+                        <div class="h_search">
+                            <input type="text" id="h_search" class="h_search-input" placeholder="Suche nach Personen, Gruppen und Dingen..." />
+                            <a href="" class="h_search_icon">
+                            	<i class="fa fa-search fa-2x"></i>
+                            </a>
+                        </div>
+                        <!--主页-->
+                        <div class="h_homepage">
+                            <a href="网站主页-Homepage.html">
+                                <img src="$ctx/resources/image/Icon_top_homepage.png" width="30" height="25" />
+                                <span style=" font-size:18px; font-family:'Arial Black', Gadget, sans-serif; color:#F0F3F6; font-weight:bold;">Homepage</span>
+                            </a>
+                        </div>
+                        <!--主页与登录头像-->
+                        <div class="h_profie">
+                        	<dt>
+                                <a href="我的个人主页-meine Seite.html">
+                                    <img src="$ctx/resources/image/user1.jpg" width="35" height="35" alt="Susu Shi" />
+                                </a>
+                            </dt>
+                            <dd>
+                            	<a class="username" href="我的个人主页-meine Seite.html" title="Susu Shi">
+                                	<span style=" font-size:16px; font-family:Verdana, Geneva, sans-serif; color:#F0F3F6; font-weight:bold;">Susu Shi</span>
+                                </a>
+                                <br />
+                                <a class="userpoint" href="">
+                                	<div style="display: inline-block;">
+                                    	<img src="$ctx/resources/image/Icon_punkt.png" width="20" height="16"/>
+                                    </div>
+                                    <div style="display:inline-block;">
+                                    	<span style=" font-size:14px; font-family:'Arial Black', Gadget, sans-serif; color:#F0F3F6; font-weight:bold;">2048</span>
+                                    </div>
+                                </a> 
+                            </dd>
+                        </div>
+                        <!--设置-->
+                        <div class="h_setting">                            
+                        	<a href="设置-Einstellungen.html">
+                            	<img src="$ctx/resources/image/Icon_setting.png" title="t-setting" width="30" height="30"/>
+                                <span class="arrow">&nbsp;</span>
+                            </a>
+                               
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="aside">
+                	<!-- 左侧菜单栏 -->
+                    <ul class="menu vertical">
+                    <li class="current">
+                    	<a href="登录主页-dashboard.html">
+                        	<img src="$ctx/resources/image/Icon_dashboard.png" width="26" height="20" />
+                        	<span style=" font-size:16px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="与我有关-ueber mich.html">
+                            <img src="$ctx/resources/image/Icon_at.png" width="25" height="25" />
+                            <span style=" font-size:16px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Über Mich</span>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="我的个人主页-meine Seite.html">
+                            <img src="$ctx/resources/image/Icon_meineseite.png" width="25" height="21" />
+                            <span style=" font-size:16px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Meine Seite</span> 
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="我的相册-meine Fotos.html">
+                            <img src="$ctx/resources/image/Icon_fotos.png" width="25" height="21" />
+                            <span style=" font-size:16px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Meine Fotos</span>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="我的文件-meine Dateien.html">
+                        	<img src="$ctx/resources/image/Icon_datei.png" width="25" height="26" />
+                        	<span style=" font-size:16px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Meine Dateien</span>
+                        </a>
+                    </li>
+                        <li>
+                        <a href="群组-Gruppen.html">
+                        	<img src="$ctx/resources/image/Icon_gruppen.png" width="25" height="24" />
+                        	<span style=" font-size:16px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Gruppen</span>
+                            
+                        </a>
+                    </li>
+                    <li>
+                        <a href="网站主页-Homepage.html">
+                        	<img src="$ctx/resources/image/Icon_homepage.png" width="25" height="24" />
+                       	 	<span style=" font-size:16px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Homepage</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="化学小故事-Geschichte.html">
+                        	<img src="$ctx/resources/image/Icon_story.png" width="24" height="25" />
+                        	<span style=" font-size:16px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Geschichte</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="趣味闯关-Reisen.html">
+                        	<img src="$ctx/resources/image/Icon_reisen.png" width="24" height="26" />
+                        	<span style=" font-size:16px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Reisen</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="知识问答-Quiz.html">
+                        	<img src="$ctx/resources/image/Icon_quiz.png" width="25" height="25" />
+                        	<span style=" font-size:16px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Quiz</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="方程式练习-Aufgaben.html">
+                        	<img src="$ctx/resources/image/Icon_aufgaben.png" width="25" height="23" />
+                        	<span style=" font-size:16px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Aufgaben</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="设置-Einstellungen.html">
+                        	<img src="$ctx/resources/image/Icon_setting.png" width="25" height="25" />
+                        	<span style=" font-size:16px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Einstellungen</span>
+                    	</a>
+                    </li>
+                    </ul>
+                </div>
+                <div class="content">
+                	<div class="main_header">
+                    	<!-- 次菜单栏 -->
+                        <ul class="menu"> 
+                            <li><a href=""></a></li>
+                            <li class="current">
+                                <a href="">
+                                	<span style=" font-size:18px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Personenkreis</span>
+                                </a>
+                            </li>
+                            <li><a href=""></a></li>
+                             <li><a href=""></a></li>
+                            <li>
+                                <a href=""> 
+                                	<span style=" font-size:18px; font-family:'Arial Black', Gadget, sans-serif; color:#3E3E3E;">Meine Kreis</span>
+                                </a>        
+                            </li>
+                            <li>
+                                <a href="">
+                                	
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                	
+                                </a>
+                            </li>
+                            
+                           
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>                        
+                        </ul>
+                    </div>
+                 	<div class="main_content">
+                    	
+                    </div>      
+                </div>
+            </div>   
+        </div>
+        <div class="foot">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="UserRelationDao">
+
+	<resultMap id="UserRelationResult" type="priv.susu.linkbook.relationship.UserRelation">
+		<id column="id" property="id" />
+		<result column="local_uid" property="localUid" />
+		<result column="remote_uid" property="remoteUid" />
+		<result column="from_uid" property="fromUid" />
+		<result column="to_uid" property="toUid" />
+		<result column="memo" property="memo" />
+		<result column="state" property="state" />
+		<result column="created_time" property="createdTime" />
+		<result column="updated_time" property="updatedTime" />
+	</resultMap>
+
+	<insert id="insert" parameterType="priv.susu.linkbook.relationship.UserRelation">
+		<![CDATA[
+			insert into `user_relationship`(`local_uid`, `remote_uid`, `from_uid`, `to_uid`, `memo`, `state`, `created_time`, `updated_time`) 
+			values (#{localUid}, #{remoteUid}, #{fromUid}, #{toUid}, #{memo}, #{state}, #{createdTime}, #{updatedTime})
+		]]>
+	</insert>
+
+	<select id="get" parameterType="map" resultMap="UserRelationResult">
+		<![CDATA[
+			select * from `user_relationship` where `local_uid` = #{localUid} and `remote_uid` = #{remoteUid}
+		]]>
+	</select>
+
+	<update id="updateState" parameterType="map">
+		<![CDATA[
+			update `user_relationship` 
+			set `state` = #{state},
+				`updated_time` = #{updatedTime}
+			where `local_uid` = #{localUid} and `remote_uid` = #{remoteUid}
+		]]>
+	</update>
+
+	<select id="getRemoteUidList" parameterType="long" resultType="long">
+		<![CDATA[
+			select `local_uid` from `user_relationship` where `remote_uid` = #{uid} and `state` = 0;
+			union all
+			select `remote_uid` from `user_relationship` where `local_uid` = #{uid} and `state` = 0;
+		]]>
+	</select>
+	
+	<select id="getApplyUidList" parameterType="long" resultType="long">
+		<![CDATA[
+			select `from_uid` from `user_relationship` where `to_uid` = #{uid} and `state` = -1;
+		]]>
+	</select>
+	
+	<update id="update" parameterType="map">
+		<![CDATA[
+			update `user_relationship` 
+			set `state` = #{state},
+				`from_uid` = #{fromUid},
+				`to_uid` = #{toUid},
+				`updated_time` = #{updatedTime}
+			where `local_uid` = #{localUid} and `remote_uid` = #{remoteUid}
+		]]>
+	</update>
+
+</mapper>
