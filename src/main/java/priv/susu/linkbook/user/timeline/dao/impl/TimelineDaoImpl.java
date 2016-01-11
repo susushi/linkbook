@@ -33,7 +33,8 @@ public class TimelineDaoImpl implements TimelineDao {
 		Map<String, Object> map = new HashMap<>();
 		map.put("id", id);
 		map.put("state", state);
-		sqlSessionTemplate.update("TimelineDao.update", map);
+		map.put("updatedTime", new Date());
+		sqlSessionTemplate.update("TimelineDao.updateState", map);
 	}
 
 	@Override

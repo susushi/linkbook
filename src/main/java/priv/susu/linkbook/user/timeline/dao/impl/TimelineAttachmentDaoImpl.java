@@ -32,7 +32,8 @@ public class TimelineAttachmentDaoImpl implements TimelineAttachmentDao {
 		Map<String, Object> map = new HashMap<>();
 		map.put("id", id);
 		map.put("state", state);
-		sqlSessionTemplate.update("TimelineAttachmentDao.update", map);
+		map.put("updatedTime", new Date());
+		sqlSessionTemplate.update("TimelineAttachmentDao.updateState", map);
 	}
 
 	@Override

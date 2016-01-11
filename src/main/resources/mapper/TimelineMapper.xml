@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="TimelineDao">
+
+	<resultMap id="TimelineResult" type="priv.susu.linkbook.user.timeline.Timeline">
+		<id column="id" property="id" />
+		<result column="uid" property="uid"/>
+		<result column="content" property="content"/>
+		<result column="state" property="state"/>
+		<result column="created_time" property="createdTime"/>
+		<result column="updated_time" property="updatedTime"/>
+	</resultMap>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id"
+		parameterType="priv.susu.linkbook.user.timeline.Timeline">
+		<![CDATA[
+			insert into `timeline`(`uid`, `content`, `state`, `created_time`, `updated_time`) 
+			values (#{uid}, #{content}, #{state}, #{created_time}, #{updated_time})
+		]]>
+	</insert>
+
+	<update id="updateState" parameterType="hashMap">
+		update `timeline`
+		set `state` = #{state},
+			`updated_time` = #{updatedTime}
+		where `id` = #{id}
+	</update>
+	
+	<select id="getCount" parameterType="long" resultType="int">
+		select count(1) from `timeline` where `uid` = #{uid} and `state` = 0
+	</select>
+	
+	<select id="getFlowList" parameterType="hashMap" resultMap="TimelineResult">
+		<![CDATA[
+			select * from `timeline` where `uid` = #{uid} and `state` = 0 and `id` < #{id} order by `id` desc limit #{size}
+		]]>
+	</select>
+
+</mapper>
