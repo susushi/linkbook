@@ -27,7 +27,7 @@
 		where `id` = #{id}
 	</update>
 	
-	<select id="getList" parameterType="long" resultMap="TimelineResult">
+	<select id="getList" parameterType="long" resultMap="TimelineAttachmentResult">
 		<![CDATA[
 			select * from `timeline_attachment` where `timeline_id` = #{timelineId} and `state` = 0 and `id` < #{id} 
 		]]>

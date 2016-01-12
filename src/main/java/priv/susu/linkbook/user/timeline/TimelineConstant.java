@@ -3,14 +3,24 @@ package priv.susu.linkbook.user.timeline;
 public interface TimelineConstant {
 
 	/**
-	 *附件状态：删除
+	 * 动态状态：删除
 	 */
 	public static final int TIMELINE_STATE_DELETED = -1;
 
 	/**
-	 * 状态：正常
+	 * 动态状态：正常
 	 */
 	public static final int TIMELINE_STATE_NORMAL = 0;
+	
+	/**
+	 * 动态附件状态：删除
+	 */
+	public static final int TIMELINE_ATTACHMENT_STATE_DELETED = -1;
+
+	/**
+	 * 动态附件状态：正常
+	 */
+	public static final int TIMELINE_ATTACHMENT_STATE_NORMAL = 0;
 
 	/**
 	 * 附件类型：图片

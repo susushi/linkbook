@@ -181,7 +181,7 @@
                             </dt>
                             <dd>
                             	<a class="username" href="我的个人主页-meine Seite.html" title="Susu Shi">
-                                	<span style=" font-size:16px; font-family:Verdana, Geneva, sans-serif; color:#F0F3F6; font-weight:bold;">Susu Shi</span>
+                                	<span style=" font-size:16px; font-family:Verdana, Geneva, sans-serif; color:#F0F3F6; font-weight:bold;">${currentUser.lastName} ${currentUser.firstName}</span>
                                 </a>
                                 <br />
                                 <a class="userpoint" href="">
