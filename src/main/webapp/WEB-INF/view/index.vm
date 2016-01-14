@@ -8,6 +8,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta name="description" content="" />
+	
+	<script type="text/javascript" src="${ctx}/resources/js/jquery.min.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/ajaxfileupload/ajaxfileupload.js"></script>
+	
 	<!--CSS-->
     <link rel="stylesheet" type="text/css" href="${ctx}/resources/css/kickstart.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/style.css" media="all" />
@@ -326,7 +330,23 @@
                         </ul>
                     </div>
                  	<div class="main_content">
-                    	
+                 		<input id="timeline_content"><input type="button" value="发布" onclick="publishTimeline();"><br>
+                    	<input type="file" id="file" name="file" onchange="upload()" > <br>
+                    	<div id="file_div"></div>
+                    	<br><br>
+                    	<div>
+                    		#foreach($timeline in $timelineList.items)
+                    			<div>
+                    				<div>$timeline.content</div>
+                    				<div>
+                    					#foreach($pic in $timeline.attachments)
+                    						<img width="50" height="50" src="$ctx${pic.url}"/>
+                    					#end
+                    				</div>
+                    				<br>
+                    			</div>
+                    		#end
+                    	</div>
                     </div>      
                 </div>
             </div>   
@@ -335,4 +355,66 @@
         </div>
     </div>
 </body>
+<script>
+
+	function publishTimeline(){
+		var content = $.trim($('#timeline_content').val());
+		if(content == ''){
+			alert('内容不能为空');
+			return;
+		}
+		var attachments = new Array();
+		$('#file_div img').each(function(i, e){
+			attachments.push($(e).attr('src'));
+		});
+		console.log(attachments.toString());
+		$.ajax({
+			url : '$ctx/timeline/add.json',
+			data : {
+				content: content,
+				attachments: attachments.toString()
+				},
+			type : 'POST',
+			dataType : 'json',
+			success : function(result){
+				console.log(result);
+				if(result.code == 0){
+					location.reload();
+				} else {
+					alert(data.message);
+				}
+			}
+		});
+	}
+
+	function upload(){
+		var val= $("#file").val();
+	    var k = val.substr(val.lastIndexOf("."));
+	    if(k!='.jpg' && k!='.jpeg' && k!='.png'){
+	    	alert('文件不是图片文件！');
+	    	return;
+	    }
+		$.ajaxFileUpload({
+			//type : 'post',
+			url : '$ctx/upload.htm', //用于文件上传的服务器端请求地址
+			secureuri : false, //是否需要安全协议，一般设置为false
+			fileElementId : 'file', //文件上传域的ID
+			dataType : "json", //返回值类型 一般设置为json
+			success : function(callback) { //服务器成功响应处理函数
+				//console.log("success:" + callback);
+				var data = callback;
+				if (data.code == 0) {
+					console.log(data.data);
+					var img = '<img width="50" height="50" src="$ctx/'+ data.data +'"/>';
+					$('#file_div').append(img);
+				} else {
+					alert(data.message);
+				}
+			},
+			error : function(callback) { //相当于java中catch语句块的用法
+				console.log("error:" + callback);
+			}
+		});
+	}
+</script>
 </html>

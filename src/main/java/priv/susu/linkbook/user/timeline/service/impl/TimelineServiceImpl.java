@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import priv.susu.linkbook.FlowWrapper;
 import priv.susu.linkbook.user.timeline.Timeline;
+import priv.susu.linkbook.user.timeline.TimelineAttachment;
 import priv.susu.linkbook.user.timeline.TimelineConstant;
 import priv.susu.linkbook.user.timeline.dao.TimelineDao;
 import priv.susu.linkbook.user.timeline.service.TimelineAttachmentService;
@@ -22,9 +23,12 @@ public class TimelineServiceImpl implements TimelineService {
 	private TimelineAttachmentService timelineAttachmentService;
 
 	@Override
-	public void add(Timeline timeline) {
-		timelineDao.add(timeline);
-		timelineAttachmentService.add(timeline.getAttachments());
+	public void add(Timeline timeline, List<TimelineAttachment> attachments) {
+		Timeline line = timelineDao.add(timeline);
+		for (TimelineAttachment attachment : attachments) {
+			attachment.setTimelineId(line.getId());
+		}
+		timelineAttachmentService.add(attachments);
 	}
 
 	@Override

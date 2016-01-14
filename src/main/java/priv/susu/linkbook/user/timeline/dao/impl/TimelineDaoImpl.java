@@ -21,11 +21,12 @@ public class TimelineDaoImpl implements TimelineDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 
 	@Override
-	public void add(Timeline timeline) {
+	public Timeline add(Timeline timeline) {
 		Date date = new Date();
 		timeline.setCreatedTime(date);
 		timeline.setUpdatedTime(date);
 		sqlSessionTemplate.insert("TimelineDao.insert", timeline);
+		return timeline;
 	}
 
 	@Override

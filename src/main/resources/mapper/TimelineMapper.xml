@@ -15,7 +15,7 @@
 		parameterType="priv.susu.linkbook.user.timeline.Timeline">
 		<![CDATA[
 			insert into `timeline`(`uid`, `content`, `state`, `created_time`, `updated_time`) 
-			values (#{uid}, #{content}, #{state}, #{created_time}, #{updated_time})
+			values (#{uid}, #{content}, #{state}, #{createdTime}, #{updatedTime})
 		]]>
 	</insert>
 

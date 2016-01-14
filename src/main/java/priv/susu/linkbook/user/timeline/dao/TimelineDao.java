@@ -6,7 +6,7 @@ import priv.susu.linkbook.user.timeline.Timeline;
 
 public interface TimelineDao {
 
-	public void add(Timeline timeline);
+	public Timeline add(Timeline timeline);
 	
 	public void updateState(long id, int state);
 	

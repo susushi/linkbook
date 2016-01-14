@@ -37,8 +37,7 @@ public class TimelineController extends AbstractController {
 		Timeline timeline = new Timeline();
 		timeline.setContent(content);
 		timeline.setUid(getCurrentUid(request));
-		timeline.setAttachments(getAttachments(attachments));
-		timelineService.add(timeline);
+		timelineService.add(timeline, getAttachments(attachments));
 		return response;
 	}
 

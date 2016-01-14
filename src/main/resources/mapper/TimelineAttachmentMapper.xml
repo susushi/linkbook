@@ -16,7 +16,7 @@
 		parameterType="priv.susu.linkbook.user.timeline.TimelineAttachment">
 		<![CDATA[
 			insert into `timeline_attachment`(`timeline_id`, `type`, `url`, `state`, `created_time`, `updated_time`) 
-			values (#{timeline_id}, #{type}, #{url}, #{state}, #{created_time}, #{updated_time})
+			values (#{timelineId}, #{type}, #{url}, #{state}, #{createdTime}, #{updatedTime})
 		]]>
 	</insert>
 
